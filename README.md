@@ -6,14 +6,23 @@ Welcome to the **5-Day DevOps Workshop**! This comprehensive program will take y
 
 ## 📚 Workshop Overview
 
-This workshop provides hands-on experience with:
+This intensive workshop provides hands-on experience with essential DevOps tools and practices:
 
-- **DevOps Theory & Culture** - Understanding principles and practices
-- **Git & GitHub** - Version control and collaboration workflows
-- **Linux & Shell Scripting** - Essential command-line skills
-- **CI/CD Pipelines** - Automated testing and deployment
-- **Docker** - Containerization and image management
-- **Kubernetes** - Container orchestration basics
+- 🎯 **DevOps Theory & Culture** - Master principles, lifecycle, and best practices
+- 🔧 **Git & GitHub** - Version control, branching strategies, and collaboration workflows
+- 💻 **Linux & Shell Scripting** - Command-line proficiency and automation scripts
+- 🚀 **CI/CD Pipelines** - Automated testing, building, and deployment with GitHub Actions
+- 🐳 **Docker** - Containerization, Dockerfile creation, multi-container applications with Docker Compose
+- ☸️ **Kubernetes** - Container orchestration, deployments, services, and cluster management
+
+### What You'll Build
+
+By the end of this workshop, you'll have:
+- ✅ A complete CI/CD pipeline deploying containerized applications
+- ✅ Dockerized microservices with proper networking
+- ✅ Kubernetes deployments running in a cluster
+- ✅ Production-ready infrastructure as code
+- ✅ Automated testing and deployment workflows
 
 ---
 
@@ -46,75 +55,235 @@ This workshop provides hands-on experience with:
 
 ---
 
-### 🟡 Day 2 – GitHub Workflows (Coming Soon)
-**Topics:**
-- GitHub collaboration features
-- Pull requests and code reviews
-- GitHub Actions introduction
-- Branch protection rules
-- Team workflows
+### 🟡 Day 2 – GitHub Workflows & Collaboration
+**Duration**: Full day (8 hours)
+
+#### Topics Covered:
+- 🔄 **GitHub Collaboration Features**
+  - Forking and cloning workflows
+  - Issues and project boards
+  - Team collaboration best practices
+  
+- 🔀 **Pull Requests & Code Reviews**
+  - Creating effective pull requests
+  - Code review guidelines
+  - Merge strategies (merge, squash, rebase)
+  
+- ⚡ **GitHub Actions Introduction**
+  - Workflow syntax and triggers
+  - Actions marketplace
+  - Creating custom actions
+  
+- 🛡️ **Branch Protection & Security**
+  - Branch protection rules
+  - Required reviews and status checks
+  - GitHub security features
+  
+- 👥 **Team Workflows**
+  - Git Flow vs GitHub Flow
+  - Trunk-based development
+  - Release management strategies
+
+**📖 Materials:** Coming Soon
 
 ---
 
-### 🟠 Day 3 – CI/CD Pipelines (Coming Soon)
-**Topics:**
-- Building CI/CD pipelines
-- GitHub Actions workflows
-- Automated testing
-- Deployment strategies
-- Pipeline best practices
+### 🟠 Day 3 – CI/CD Pipelines with GitHub Actions
+**Duration**: Full day (8 hours)
+
+#### Topics Covered:
+- 🔨 **Building CI/CD Pipelines**
+  - Pipeline architecture and stages
+  - Build, test, and deploy phases
+  - Environment management (dev, staging, prod)
+  
+- ⚙️ **GitHub Actions Deep Dive**
+  - Workflow triggers (push, pull_request, schedule)
+  - Jobs, steps, and actions
+  - Matrix builds and parallel execution
+  - Secrets and environment variables
+  
+- 🧪 **Automated Testing**
+  - Unit tests in CI pipeline
+  - Integration testing
+  - Code quality checks (linting, formatting)
+  - Test coverage reports
+  
+- 🚢 **Deployment Strategies**
+  - Blue-green deployments
+  - Canary releases
+  - Rolling updates
+  - Rollback strategies
+  
+- 📊 **Monitoring & Notifications**
+  - Pipeline monitoring
+  - Slack/email notifications
+  - Status badges and reporting
+
+**🎯 Hands-On Projects:**
+- Build a complete CI/CD pipeline for a web application
+- Implement automated testing workflows
+- Deploy to cloud platforms (AWS/Azure/GCP)
+
+**📖 Materials:** Coming Soon
 
 ---
 
-### 🔵 Day 4 – Docker (Coming Soon)
-**Topics:**
-- Docker fundamentals
-- Creating Dockerfiles
-- Building and running containers
-- Docker Compose
-- Registry and image management
+### 🔵 Day 4 – Docker & Containerization
+**Duration**: Full day (8 hours)
+
+#### Topics Covered:
+- 🐳 **Docker Fundamentals**
+  - Container vs VM architecture
+  - Docker engine and daemon
+  - Images, containers, and layers
+  - Docker networking basics
+  
+- 📝 **Creating Dockerfiles**
+  - Dockerfile instructions (FROM, RUN, COPY, CMD, ENTRYPOINT)
+  - Multi-stage builds for optimization
+  - Best practices for layer caching
+  - Security considerations
+  
+- 🏃 **Building & Running Containers**
+  - `docker build`, `docker run`, `docker exec`
+  - Port mapping and volume mounts
+  - Container lifecycle management
+  - Debugging containers (logs, inspect, stats)
+  
+- 🎼 **Docker Compose**
+  - Multi-container applications
+  - `compose.yaml` structure
+  - Service dependencies and networking
+  - Environment configuration
+  - Scaling services
+  
+- 📦 **Registry & Image Management**
+  - Docker Hub and private registries
+  - Image tagging strategies
+  - Pushing and pulling images
+  - Image security scanning
+
+**🎯 Hands-On Projects:**
+- Containerize a full-stack application (frontend + backend + database)
+- Create optimized production-ready Dockerfiles
+- Deploy multi-container app with Docker Compose
+- Implement Docker best practices
+
+**📖 Materials:** Coming Soon
 
 ---
 
-### 🟣 Day 5 – Kubernetes Basics (Coming Soon)
-**Topics:**
-- Kubernetes architecture
-- Pods, Services, Deployments
-- kubectl commands
-- Basic cluster management
-- Deploying containerized apps
+### 🟣 Day 5 – Kubernetes Container Orchestration
+**Duration**: Full day (8 hours)
+
+#### Topics Covered:
+- ☸️ **Kubernetes Architecture**
+  - Control plane components (API server, scheduler, controller)
+  - Node components (kubelet, kube-proxy)
+  - Kubernetes objects and resources
+  - Cluster networking overview
+  
+- 🎯 **Core Kubernetes Objects**
+  - **Pods**: Smallest deployable units
+  - **Services**: Stable networking and load balancing
+  - **Deployments**: Declarative application updates
+  - **ReplicaSets**: Maintaining pod replicas
+  - **ConfigMaps & Secrets**: Configuration management
+  
+- 🛠️ **kubectl Commands**
+  - `kubectl get`, `apply`, `describe`, `logs`
+  - Creating and managing resources
+  - Debugging pods and services
+  - Port forwarding and exec into containers
+  
+- 🎛️ **Basic Cluster Management**
+  - Namespace organization
+  - Resource quotas and limits
+  - Health checks (liveness & readiness probes)
+  - Scaling applications
+  
+- 🚀 **Deploying Containerized Apps**
+  - YAML manifest files
+  - Deployment strategies (rolling updates, rollbacks)
+  - Service discovery and DNS
+  - Exposing applications (ClusterIP, NodePort, LoadBalancer)
+
+**🎯 Hands-On Projects:**
+- Deploy a microservices application to Kubernetes
+- Implement service-to-service communication
+- Configure auto-scaling and health checks
+- Practice rolling updates and rollbacks
+- Set up monitoring and logging
+
+**📖 Materials:** Coming Soon
 
 ---
 
 ## 🎯 Learning Objectives
 
-By the end of this workshop, you will:
+By the end of this 5-day workshop, you will:
 
-1. ✅ Understand DevOps principles and culture
-2. ✅ Master Git version control and GitHub workflows
-3. ✅ Use Linux command line effectively
-4. ✅ Build and manage CI/CD pipelines
-5. ✅ Containerize applications with Docker
-6. ✅ Deploy and orchestrate containers with Kubernetes
-7. ✅ Apply DevOps best practices in real projects
+### Core Competencies
+1. ✅ **Understand DevOps Culture** - Grasp DevOps principles, lifecycle, and shift-left practices
+2. ✅ **Master Git & GitHub** - Version control, branching strategies, pull requests, and collaboration
+3. ✅ **Linux Proficiency** - Navigate file systems, manage permissions, write bash scripts
+4. ✅ **Build CI/CD Pipelines** - Create automated workflows with GitHub Actions
+5. ✅ **Containerize Applications** - Write Dockerfiles, build images, use Docker Compose
+6. ✅ **Orchestrate with Kubernetes** - Deploy and manage containerized apps in clusters
+7. ✅ **Apply Best Practices** - Security, testing, monitoring, and documentation
+
+### Practical Skills
+- 🔧 Set up complete DevOps toolchain from scratch
+- 🚀 Deploy production-ready applications automatically
+- 🐛 Debug and troubleshoot containerized environments
+- 📊 Monitor application performance and health
+- 🔒 Implement security best practices throughout the pipeline
+- 👥 Collaborate effectively in team environments
 
 ---
 
 ## 🛠️ Prerequisites
 
 ### Required Software
-- **Git** - [Download](https://git-scm.com/downloads)
-- **Docker** - [Download](https://www.docker.com/products/docker-desktop)
-- **Visual Studio Code** - [Download](https://code.visualstudio.com/)
-- **Terminal** - macOS/Linux (built-in), Windows (Git Bash or WSL)
+
+Install these tools before the workshop:
+
+| Tool | Purpose | Installation |
+|------|---------|--------------|
+| **Git** | Version control | [Download](https://git-scm.com/downloads) |
+| **Docker Desktop** | Containerization platform | [Download](https://www.docker.com/products/docker-desktop) |
+| **Visual Studio Code** | Code editor | [Download](https://code.visualstudio.com/) |
+| **kubectl** | Kubernetes CLI | [Install Guide](https://kubernetes.io/docs/tasks/tools/) |
+| **Terminal** | Command-line interface | macOS/Linux (built-in), Windows (Git Bash/WSL) |
+
+### VS Code Extensions (Recommended)
+- Docker (ms-azuretools.vscode-docker)
+- Kubernetes (ms-kubernetes-tools.vscode-kubernetes-tools)
+- YAML (redhat.vscode-yaml)
+- GitLens (eamodio.gitlens)
 
 ### Accounts
-- **GitHub** account - [Sign up](https://github.com/join)
-- **Docker Hub** account (optional) - [Sign up](https://hub.docker.com/signup)
 
-### Knowledge
-- Basic programming knowledge (any language)
-- Familiarity with command line (helpful but not required)
+Create these accounts (all free):
+
+- 🐙 **GitHub** - [Sign up](https://github.com/join) - For version control and CI/CD
+- 🐳 **Docker Hub** - [Sign up](https://hub.docker.com/signup) - For container images (optional)
+- ☁️ **Cloud Platform** (optional) - AWS/Azure/GCP free tier for deployment practice
+
+### Knowledge Prerequisites
+
+- ✅ Basic programming knowledge (any language)
+- ✅ Familiarity with command line (helpful but not required)
+- ✅ Understanding of web applications (frontend/backend concept)
+- ✅ Willingness to learn and experiment!
+
+### System Requirements
+
+- **OS**: macOS, Linux, or Windows 10/11
+- **RAM**: 8GB minimum (16GB recommended)
+- **Storage**: 20GB free space
+- **Internet**: Stable connection for downloads and cloud operations
 
 ---
 
@@ -160,22 +329,43 @@ Each day has its own folder with detailed materials, exercises, and hands-on lab
 
 ## 📖 Additional Resources
 
-### Books
-- [The Phoenix Project](https://www.amazon.com/Phoenix-Project-DevOps-Helping-Business/dp/0988262592)
-- [The DevOps Handbook](https://www.amazon.com/DevOps-Handbook-World-Class-Reliability-Organizations/dp/1942788002)
-- [Pro Git Book](https://git-scm.com/book/en/v2) (Free)
+### 📚 Books
+- [**The Phoenix Project**](https://www.amazon.com/Phoenix-Project-DevOps-Helping-Business/dp/0988262592) - DevOps novel that explains the principles
+- [**The DevOps Handbook**](https://www.amazon.com/DevOps-Handbook-World-Class-Reliability-Organizations/dp/1942788002) - Practical implementation guide
+- [**Pro Git Book**](https://git-scm.com/book/en/v2) - Complete Git reference (Free)
+- [**Docker Deep Dive**](https://www.amazon.com/Docker-Deep-Dive-Nigel-Poulton/dp/1521822808) - Comprehensive Docker guide
+- [**Kubernetes Up & Running**](https://www.oreilly.com/library/view/kubernetes-up-and/9781492046523/) - K8s fundamentals
 
-### Online Learning
-- [DevOps Roadmap](https://roadmap.sh/devops)
-- [Kubernetes Documentation](https://kubernetes.io/docs/)
-- [Docker Documentation](https://docs.docker.com/)
-- [GitHub Learning Lab](https://lab.github.com/)
+### 🌐 Online Learning Platforms
+- [**DevOps Roadmap**](https://roadmap.sh/devops) - Complete learning path
+- [**Kubernetes Documentation**](https://kubernetes.io/docs/) - Official K8s docs
+- [**Docker Documentation**](https://docs.docker.com/) - Official Docker docs
+- [**GitHub Skills**](https://skills.github.com/) - Interactive GitHub tutorials
+- [**KillerCoda**](https://killercoda.com/) - Interactive DevOps scenarios
 
-### Tools Documentation
-- [Git Official Docs](https://git-scm.com/doc)
-- [GitHub Actions](https://docs.github.com/en/actions)
-- [Docker Docs](https://docs.docker.com/)
-- [Kubectl Cheat Sheet](https://kubernetes.io/docs/reference/kubectl/cheatsheet/)
+### 🛠️ Tools Documentation
+- [**Git Official Docs**](https://git-scm.com/doc) - Git command reference
+- [**GitHub Actions**](https://docs.github.com/en/actions) - CI/CD workflows
+- [**Docker CLI**](https://docs.docker.com/engine/reference/commandline/cli/) - Docker commands
+- [**kubectl Cheat Sheet**](https://kubernetes.io/docs/reference/kubectl/cheatsheet/) - K8s commands
+- [**Docker Compose**](https://docs.docker.com/compose/) - Multi-container apps
+
+### 🎓 Interactive Practice
+- [**Learn Git Branching**](https://learngitbranching.js.org/) - Visual Git tutorial
+- [**Play with Docker**](https://labs.play-with-docker.com/) - Docker playground
+- [**Play with Kubernetes**](https://labs.play-with-k8s.com/) - K8s playground
+- [**Katacoda**](https://www.katacoda.com/) - Interactive scenarios
+
+### 🎥 Video Tutorials
+- [**Docker for Beginners**](https://www.youtube.com/watch?v=fqMOX6JJhGo) - FreeCodeCamp
+- [**Kubernetes Tutorial**](https://www.youtube.com/watch?v=X48VuDVv0do) - TechWorld with Nana
+- [**GitHub Actions Tutorial**](https://www.youtube.com/watch?v=R8_veQiYBjI) - GitHub official
+
+### 📰 Blogs & Communities
+- [**DevOps.com**](https://devops.com/) - DevOps news and articles
+- [**CNCF Blog**](https://www.cncf.io/blog/) - Cloud native computing
+- [**Docker Blog**](https://www.docker.com/blog/) - Container updates
+- [**/r/devops**](https://www.reddit.com/r/devops/) - Reddit community
 
 ---
 
@@ -199,10 +389,49 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 
 ## 🙏 Acknowledgments
 
-- Git official documentation
-- Docker official documentation
-- Kubernetes official documentation
-- DevOps community best practices
+This workshop is built upon knowledge and best practices from:
+
+- **Git & GitHub** - Official documentation and community resources
+- **Docker** - Docker official documentation and Docker community
+- **Kubernetes** - CNCF and Kubernetes official documentation
+- **DevOps Community** - Contributions from practitioners worldwide
+- **Context7** - Up-to-date technical documentation and code examples
+- **Open Source Contributors** - Thousands of developers making DevOps tools better
+
+### Special Thanks
+- Linux Foundation for Kubernetes and cloud native technologies
+- Docker Inc. for revolutionizing containerization
+- GitHub for making collaboration seamless
+- The entire DevOps community for sharing knowledge
+
+---
+
+## ❓ FAQ
+
+<details>
+<summary><b>Do I need prior DevOps experience?</b></summary>
+No! This workshop starts from fundamentals and progressively builds your skills.
+</details>
+
+<details>
+<summary><b>Can I complete this workshop at my own pace?</b></summary>
+Absolutely! All materials are self-paced. The 5-day structure is a suggested timeline.
+</details>
+
+<details>
+<summary><b>What if I get stuck on an exercise?</b></summary>
+Check the documentation links, review the examples, or open an issue in the repository for help.
+</details>
+
+<details>
+<summary><b>Will I get a certificate?</b></summary>
+This is a self-paced learning workshop. Focus on building skills and a portfolio of projects.
+</details>
+
+<details>
+<summary><b>Can I use this for commercial training?</b></summary>
+Yes, this content is open source. Please provide attribution to the original repository.
+</details>
 
 ---
 
@@ -215,3 +444,28 @@ For questions or feedback:
 ---
 
 **🎉 Ready to start your DevOps journey? Begin with [Day 1](./Day-1/)!**
+
+---
+
+## 📊 Workshop Statistics
+
+- **Total Duration**: 40 hours (5 days × 8 hours)
+- **Hands-On Projects**: 15+ practical exercises
+- **Technologies Covered**: 10+ tools and platforms
+- **Lines of Code**: 1000+ across examples and projects
+- **Real-World Scenarios**: Production-ready implementations
+
+---
+
+## 🌟 Star This Repository
+
+If you find this workshop helpful, please ⭐ star this repository to show your support and help others discover it!
+
+```bash
+# Clone and get started today!
+git clone https://github.com/darshan45672/RV-DevOps.git
+cd RV-DevOps
+cat Day-1/README.md
+```
+
+**Happy Learning! 🚀**
