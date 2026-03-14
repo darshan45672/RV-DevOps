@@ -55,36 +55,35 @@ By the end of this workshop, you'll have:
 
 ---
 
-### 🟡 Day 2 – GitHub Workflows & Collaboration
+### [🟡 Day 2 – Advanced Git + GitHub Workflows](./Day-2/)
 **Duration**: Full day (8 hours)
 
-#### Topics Covered:
-- 🔄 **GitHub Collaboration Features**
-  - Forking and cloning workflows
-  - Issues and project boards
-  - Team collaboration best practices
-  
-- 🔀 **Pull Requests & Code Reviews**
-  - Creating effective pull requests
-  - Code review guidelines
-  - Merge strategies (merge, squash, rebase)
-  
-- ⚡ **GitHub Actions Introduction**
-  - Workflow syntax and triggers
-  - Actions marketplace
-  - Creating custom actions
-  
-- 🛡️ **Branch Protection & Security**
-  - Branch protection rules
-  - Required reviews and status checks
-  - GitHub security features
-  
-- 👥 **Team Workflows**
-  - Git Flow vs GitHub Flow
-  - Trunk-based development
-  - Release management strategies
+#### Morning Session (4 hours)
+- ✅ Advanced Git techniques (merge vs rebase)
+- ✅ Resolving merge conflicts effectively
+- ✅ Git stash for context switching
+- ✅ Cherry-pick specific commits
+- ✅ Reset vs Revert strategies
+- ✅ Version tagging with semantic versioning
 
-**📖 Materials:** Coming Soon
+#### Afternoon Session (4 hours)
+- ✅ Pull Requests best practices
+- ✅ Code review guidelines and process
+- ✅ Forking model and workflows
+- ✅ GitHub Issues and Projects
+- ✅ Branching strategies (Git Flow vs GitHub Flow)
+- ✅ Mini Project: Build Todo API with complete workflow
+
+**📖 Materials:**
+- [Advanced Git Techniques](./Day-2/01-advanced-git.md)
+- [GitHub Deep Dive](./Day-2/02-github-deep-dive.md)
+- [Mini Project - Todo API](./Day-2/03-mini-project.md)
+
+**🎯 Hands-On Projects:**
+- Complete Todo API (Node.js or Python)
+- Practice feature branch workflow
+- Create and review pull requests
+- Tag releases with semantic versioning
 
 ---
 
