@@ -174,49 +174,61 @@ By the end of this workshop, you'll have:
 
 ---
 
-### 🟣 Day 5 – Kubernetes Container Orchestration
+### [🟣 Day 5 – Basic Kubernetes](./Day-5/)
 **Duration**: Full day (8 hours)
 
-#### Topics Covered:
-- ☸️ **Kubernetes Architecture**
-  - Control plane components (API server, scheduler, controller)
-  - Node components (kubelet, kube-proxy)
-  - Kubernetes objects and resources
-  - Cluster networking overview
-  
-- 🎯 **Core Kubernetes Objects**
-  - **Pods**: Smallest deployable units
-  - **Services**: Stable networking and load balancing
-  - **Deployments**: Declarative application updates
-  - **ReplicaSets**: Maintaining pod replicas
-  - **ConfigMaps & Secrets**: Configuration management
-  
-- 🛠️ **kubectl Commands**
-  - `kubectl get`, `apply`, `describe`, `logs`
-  - Creating and managing resources
-  - Debugging pods and services
-  - Port forwarding and exec into containers
-  
-- 🎛️ **Basic Cluster Management**
-  - Namespace organization
-  - Resource quotas and limits
-  - Health checks (liveness & readiness probes)
-  - Scaling applications
-  
-- 🚀 **Deploying Containerized Apps**
-  - YAML manifest files
-  - Deployment strategies (rolling updates, rollbacks)
-  - Service discovery and DNS
-  - Exposing applications (ClusterIP, NodePort, LoadBalancer)
+#### Morning Session (4 hours)
+- ✅ Container orchestration fundamentals
+- ✅ Why Kubernetes? (scaling, self-healing, automation)
+- ✅ Kubernetes architecture (control plane + worker nodes)
+- ✅ etcd, API server, scheduler, controller-manager
+- ✅ Kubelet, kube-proxy, container runtime
+- ✅ Declarative model and reconciliation loop
+- ✅ Core objects: Pods, Deployments, ReplicaSets
+- ✅ Services (ClusterIP, NodePort, LoadBalancer)
+- ✅ ConfigMaps and Secrets
 
-**🎯 Hands-On Projects:**
-- Deploy a microservices application to Kubernetes
-- Implement service-to-service communication
-- Configure auto-scaling and health checks
-- Practice rolling updates and rollbacks
-- Set up monitoring and logging
+#### Afternoon Session (4 hours)
+- ✅ Install kubectl and Minikube
+- ✅ Start Minikube with Podman driver
+- ✅ Essential kubectl commands (get, apply, describe, logs)
+- ✅ Create and manage pods
+- ✅ Deploy applications with Deployments
+- ✅ Expose services with ClusterIP and NodePort
+- ✅ Debug pods and troubleshoot issues
+- ✅ Complete deployment project: Podman → Kubernetes
 
-**📖 Materials:** Coming Soon
+**📖 Materials:**
+- [Kubernetes Theory](./Day-5/01-kubernetes-theory.md)
+- [Core Kubernetes Objects](./Day-5/02-core-objects.md)
+- [kubectl Hands-On Guide](./Day-5/03-kubectl-hands-on.md)
+- [Deploy to Kubernetes Project](./Day-5/04-deploy-to-k8s.md)
+
+**🎯 Hands-On Project:**
+- Deploy Day 4 Todo app to Kubernetes
+- Build images with Podman
+- Push to Docker Hub/Quay.io
+- Create Kubernetes YAML manifests (Deployment, Service, ConfigMap, Secret)
+- Deploy multi-tier app (Frontend + Backend + PostgreSQL + Redis)
+- Expose with LoadBalancer or NodePort
+- Scale deployments (3 → 5 replicas)
+- Perform rolling updates and rollbacks
+- Troubleshoot common issues
+
+**🔧 Tools Used:**
+- **kubectl**: Kubernetes CLI
+- **Minikube**: Local Kubernetes cluster
+- **Podman**: Container image building (from Day 4)
+- **Docker Hub/Quay.io**: Container registry
+
+**🎓 Learning Outcomes:**
+- Understand Kubernetes architecture and components
+- Master kubectl commands for cluster management
+- Deploy and manage multi-tier applications
+- Implement high availability with replicas
+- Use ConfigMaps and Secrets for configuration
+- Troubleshoot pods and services effectively
+- Integrate Podman → Kubernetes workflow
 
 ---
 
@@ -296,10 +308,30 @@ RV-DevOps/
 │   ├── 02-linux-basics.md
 │   ├── 03-git-hands-on.md
 │   └── README.md
-├── Day-2/                    # GitHub Workflows (Coming Soon)
-├── Day-3/                    # CI/CD Pipelines (Coming Soon)
-├── Day-4/                    # Docker (Coming Soon)
-├── Day-5/                    # Kubernetes Basics (Coming Soon)
+├── Day-2/                    # Advanced Git + GitHub Workflows
+│   ├── 01-advanced-git.md
+│   ├── 02-github-deep-dive.md
+│   ├── 03-mini-project.md
+│   └── README.md
+├── Day-3/                    # CI/CD Pipelines with GitHub Actions
+│   ├── 01-cicd-theory.md
+│   ├── 02-github-actions.md
+│   ├── 03-pipeline-best-practices.md
+│   ├── 04-cicd-project.md
+│   └── README.md
+├── Day-4/                    # Podman Containerization
+│   ├── 01-podman-theory.md
+│   ├── 02-podman-hands-on.md
+│   ├── 03-containerfile-guide.md
+│   ├── 04-podman-compose.md
+│   ├── 05-podman-project.md
+│   └── README.md
+├── Day-5/                    # Basic Kubernetes
+│   ├── 01-kubernetes-theory.md
+│   ├── 02-core-objects.md
+│   ├── 03-kubectl-hands-on.md
+│   ├── 04-deploy-to-k8s.md
+│   └── README.md
 └── README.md                 # This file
 ```
 
