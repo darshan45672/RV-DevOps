@@ -87,44 +87,45 @@ By the end of this workshop, you'll have:
 
 ---
 
-### 🟠 Day 3 – CI/CD Pipelines with GitHub Actions
+### [🟠 Day 3 – CI/CD Pipelines with GitHub Actions](./Day-3/)
 **Duration**: Full day (8 hours)
 
-#### Topics Covered:
-- 🔨 **Building CI/CD Pipelines**
-  - Pipeline architecture and stages
-  - Build, test, and deploy phases
-  - Environment management (dev, staging, prod)
-  
-- ⚙️ **GitHub Actions Deep Dive**
-  - Workflow triggers (push, pull_request, schedule)
-  - Jobs, steps, and actions
-  - Matrix builds and parallel execution
-  - Secrets and environment variables
-  
-- 🧪 **Automated Testing**
-  - Unit tests in CI pipeline
-  - Integration testing
-  - Code quality checks (linting, formatting)
-  - Test coverage reports
-  
-- 🚢 **Deployment Strategies**
-  - Blue-green deployments
-  - Canary releases
-  - Rolling updates
-  - Rollback strategies
-  
-- 📊 **Monitoring & Notifications**
-  - Pipeline monitoring
-  - Slack/email notifications
-  - Status badges and reporting
+#### Morning Session (3.5 hours)
+- ✅ CI/CD theory and fundamentals
+- ✅ Pipeline stages: Code → Build → Test → Package → Deploy
+- ✅ Artifacts and rollback strategies
+- ✅ Deployment strategies (Blue-Green, Canary, Rolling)
+- ✅ GitHub Actions introduction
+- ✅ Workflow YAML syntax and structure
 
-**🎯 Hands-On Projects:**
-- Build a complete CI/CD pipeline for a web application
-- Implement automated testing workflows
-- Deploy to cloud platforms (AWS/Azure/GCP)
+#### Afternoon Session (4.5 hours)
+- ✅ GitHub Actions deep dive (jobs, steps, runners)
+- ✅ Actions Marketplace and reusable workflows
+- ✅ Secrets and environment variables
+- ✅ Artifacts and caching for speed
+- ✅ Matrix builds across multiple versions
+- ✅ Pipeline best practices (fail fast, security scanning)
+- ✅ Optimization for GitHub Actions free tier
 
-**📖 Materials:** Coming Soon
+**📖 Materials:**
+- [CI/CD Theory & Fundamentals](./Day-3/01-cicd-theory.md)
+- [GitHub Actions Deep Dive](./Day-3/02-github-actions.md)
+- [Pipeline Best Practices](./Day-3/03-pipeline-best-practices.md)
+- [Practical CI/CD Project](./Day-3/04-cicd-project.md)
+
+**🎯 Hands-On Project:**
+- Complete CI/CD pipeline for web application
+- Automated testing (unit, integration, E2E)
+- Multi-stage deployment (staging → production)
+- Docker containerization with GitHub Actions
+- Automated rollback on failure
+- Security scanning and code quality checks
+
+**💡 Free Tier Optimization:**
+- 2,000 minutes/month for private repos
+- Unlimited minutes for public repos
+- Caching strategies to reduce build time by 90%
+- Path filtering to avoid unnecessary runs
 
 ---
 
