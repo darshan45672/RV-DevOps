@@ -129,48 +129,48 @@ By the end of this workshop, you'll have:
 
 ---
 
-### 🔵 Day 4 – Docker & Containerization
+### [🔵 Day 4 – Podman Deep Dive](./Day-4/)
 **Duration**: Full day (8 hours)
 
-#### Topics Covered:
-- 🐳 **Docker Fundamentals**
-  - Container vs VM architecture
-  - Docker engine and daemon
-  - Images, containers, and layers
-  - Docker networking basics
-  
-- 📝 **Creating Dockerfiles**
-  - Dockerfile instructions (FROM, RUN, COPY, CMD, ENTRYPOINT)
-  - Multi-stage builds for optimization
-  - Best practices for layer caching
-  - Security considerations
-  
-- 🏃 **Building & Running Containers**
-  - `docker build`, `docker run`, `docker exec`
-  - Port mapping and volume mounts
-  - Container lifecycle management
-  - Debugging containers (logs, inspect, stats)
-  
-- 🎼 **Docker Compose**
-  - Multi-container applications
-  - `compose.yaml` structure
-  - Service dependencies and networking
-  - Environment configuration
-  - Scaling services
-  
-- 📦 **Registry & Image Management**
-  - Docker Hub and private registries
-  - Image tagging strategies
-  - Pushing and pulling images
-  - Image security scanning
+#### Morning Session (4 hours)
+- ✅ Containerization fundamentals
+- ✅ VM vs Container comparison
+- ✅ Podman architecture (daemonless & rootless)
+- ✅ Podman vs Docker differences
+- ✅ Images, containers, volumes, networks, pods
+- ✅ Essential Podman commands
+- ✅ Working with containers and images
 
-**🎯 Hands-On Projects:**
-- Containerize a full-stack application (frontend + backend + database)
-- Create optimized production-ready Dockerfiles
-- Deploy multi-container app with Docker Compose
-- Implement Docker best practices
+#### Afternoon Session (4 hours)
+- ✅ Containerfile syntax and best practices
+- ✅ Multi-stage builds for optimization
+- ✅ Security hardening (rootless, non-root users)
+- ✅ Podman Compose for multi-container apps
+- ✅ Networking and volume management
+- ✅ Complete full-stack project
 
-**📖 Materials:** Coming Soon
+**📖 Materials:**
+- [Podman Theory & Fundamentals](./Day-4/01-podman-theory.md)
+- [Podman Hands-On Commands](./Day-4/02-podman-hands-on.md)
+- [Containerfile Best Practices](./Day-4/03-containerfile-guide.md)
+- [Podman Compose Guide](./Day-4/04-podman-compose.md)
+- [Practical Podman Project](./Day-4/05-podman-project.md)
+
+**🎯 Hands-On Project:**
+- Full-stack Todo application
+- Frontend (React) + Backend (Node.js) + Database (PostgreSQL) + Cache (Redis)
+- Multi-stage Containerfiles for optimization
+- Podman Compose orchestration
+- Production-ready setup with health checks
+- Persistent data with volumes
+- Network segmentation (frontend/backend)
+
+**🔒 Security Focus:**
+- Daemonless architecture (no single point of failure)
+- Rootless containers (run without root privileges)
+- Non-root users in containers
+- Security scanning and best practices
+- SELinux and seccomp integration
 
 ---
 
