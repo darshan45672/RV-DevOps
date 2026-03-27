@@ -62,7 +62,7 @@ By the end of Day 5, you will:
 ### Afternoon Session (4 hours)
 
 #### 3️⃣ Hands-on with kubectl (2 hours)
-- Setting up Minikube/Kind
+- Setting up kind with Podman
 - Essential kubectl commands
 - Creating and managing resources
 - Debugging pods and logs
@@ -95,7 +95,7 @@ By the end of Day 5, you will:
    - Secrets
 
 3. **[Hands-on with kubectl](./03-kubectl-hands-on.md)**
-   - Minikube/Kind setup
+   - kind with Podman setup
    - Essential kubectl commands
    - Managing resources
    - Debugging and scaling
@@ -126,32 +126,25 @@ sudo install -o root -g root -m 0755 kubectl /usr/local/bin/kubectl
 kubectl version --client
 ```
 
-**2. Minikube (Local Kubernetes):**
+**2. kind (Kubernetes in Podman):**
 ```bash
 # macOS
-brew install minikube
-
-# Linux
-curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64
-sudo install minikube-linux-amd64 /usr/local/bin/minikube
-
-# Start cluster
-minikube start --driver=podman
-
-# Verify
-minikube status
-kubectl get nodes
-```
-
-**Alternative: Kind (Kubernetes in Docker)**
-```bash
 brew install kind
 
-# Create cluster
-kind create cluster
+# Linux
+# For AMD64 / x86_64
+[ $(uname -m) = x86_64 ] && curl -Lo ./kind https://kind.sigs.k8s.io/dl/v0.20.0/kind-linux-amd64
+# For ARM64
+[ $(uname -m) = aarch64 ] && curl -Lo ./kind https://kind.sigs.k8s.io/dl/v0.20.0/kind-linux-arm64
+chmod +x ./kind
+sudo mv ./kind /usr/local/bin/kind
+
+# Create cluster with Podman
+KIND_EXPERIMENTAL_PROVIDER=podman kind create cluster --name kubectl-cluster
 
 # Verify
 kubectl cluster-info
+kubectl get nodes
 ```
 
 **3. Podman (Already installed from Day 4):**
@@ -246,12 +239,50 @@ By the end of Day 5, you'll have:
 
 ---
 
+## 🚀 Quick Setup Guide
+
+### Get Started with kubectl and kind
+
+1. **Verify Tools:**
+```bash
+kubectl version --client
+podman version
+kind version
+```
+
+2. **Create Cluster:**
+```bash
+KIND_EXPERIMENTAL_PROVIDER=podman kind create cluster --name kubectl-cluster
+```
+
+3. **Verify Setup:**
+```bash
+kubectl cluster-info
+kubectl get nodes
+kubectl get pods --all-namespaces
+```
+
+4. **Start Learning:**
+```bash
+# Create your first pod
+kubectl run nginx --image=nginx:1.24
+kubectl get pods
+kubectl port-forward pod/nginx 8080:80
+```
+
+5. **Clean Up Later:**
+```bash
+kind delete cluster --name kubectl-cluster
+```
+
+---
+
 **Resources:**
 - [Official Kubernetes Documentation](https://kubernetes.io/docs/)
 - [Kubernetes Basics Tutorial](https://kubernetes.io/docs/tutorials/kubernetes-basics/)
 - [kubectl Cheat Sheet](https://kubernetes.io/docs/reference/kubectl/cheatsheet/)
-- [Minikube Documentation](https://minikube.sigs.k8s.io/docs/)
-- [Kind Documentation](https://kind.sigs.k8s.io/)
+- [kind Documentation](https://kind.sigs.k8s.io/)
+- [Podman Documentation](https://docs.podman.io/)
 
 ---
 

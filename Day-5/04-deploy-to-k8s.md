@@ -68,7 +68,7 @@
 Before starting, ensure you have:
 
 - ✅ **Podman installed** (from Day 4)
-- ✅ **Minikube running** with Podman driver
+- ✅ **kind cluster running** with Podman provider
 - ✅ **kubectl configured**
 - ✅ **Docker Hub account** (free: https://hub.docker.com)
 
@@ -711,7 +711,7 @@ metadata:
   name: frontend-service
   namespace: todo-app
 spec:
-  type: LoadBalancer  # Use NodePort for Minikube if tunnel not available
+  type: LoadBalancer  # Will stay <pending> in kind, use port-forward
   selector:
     app: frontend
   ports:
@@ -724,11 +724,11 @@ spec:
 
 ## 🚀 Step 4: Deploy to Kubernetes
 
-### 1. Ensure Minikube is Running
+### 1. Ensure kind Cluster is Running
 
 ```bash
-minikube start --driver=podman
-minikube status
+kubectl cluster-info
+kubectl get nodes
 ```
 
 ### 2. Apply Manifests in Order
@@ -851,15 +851,11 @@ spec:
 ```bash
 kubectl apply -f k8s/frontend-service.yaml
 
-# Get Minikube IP
-minikube ip
-# 192.168.49.2
+# Use port-forward to access NodePort
+kubectl port-forward service/frontend-service 3000:80 -n todo-app
 
-# Access app
-open http://192.168.49.2:30080
-
-# Or use Minikube service
-minikube service frontend-service -n todo-app
+# Access application at:
+# http://localhost:3000
 ```
 
 ### Option 3: Port Forwarding (Development)
@@ -1036,7 +1032,7 @@ DOCKER_USERNAME="your-username"  # CHANGE THIS
 echo -e "${BLUE}Checking prerequisites...${NC}"
 command -v kubectl >/dev/null 2>&1 || { echo "kubectl not found"; exit 1; }
 command -v podman >/dev/null 2>&1 || { echo "podman not found"; exit 1; }
-minikube status >/dev/null 2>&1 || { echo "Minikube not running"; exit 1; }
+kubectl get nodes >/dev/null 2>&1 || { echo "kind cluster not running"; exit 1; }
 
 # Build images
 echo -e "${BLUE}Building images...${NC}"
@@ -1086,7 +1082,7 @@ kubectl wait --for=condition=ready pod -l app=frontend -n ${NAMESPACE} --timeout
 echo -e "${GREEN}✅ Deployment complete!${NC}"
 echo ""
 echo "Access your app:"
-echo "  minikube service frontend-service -n ${NAMESPACE}"
+echo "  kubectl port-forward service/frontend-service 3000:3000 -n ${NAMESPACE}"
 echo ""
 echo "View resources:"
 echo "  kubectl get all -n ${NAMESPACE}"
@@ -1203,9 +1199,9 @@ kubectl delete -f k8s/configmap.yaml
 kubectl delete -f k8s/namespace.yaml
 ```
 
-**Stop Minikube:**
+**Stop kind cluster:**
 ```bash
-minikube stop
+kind delete cluster --name kubectl-cluster
 ```
 
 ---

@@ -7,7 +7,7 @@
 ## 📚 Table of Contents
 - [Introduction](#introduction)
 - [Setup: Installing Tools](#setup-installing-tools)
-- [Starting Minikube](#starting-minikube)
+- [Setting up kind with Podman](#setting-up-kind-with-podman)
 - [Essential kubectl Commands](#essential-kubectl-commands)
 - [kubectl Best Practices](#kubectl-best-practices)
 - [Working with Pods](#working-with-pods)
@@ -27,7 +27,7 @@
 
 **What we'll learn:**
 - Install and configure kubectl
-- Set up Minikube with Podman driver
+- Set up kind with Podman runtime
 - Master essential kubectl commands
 - Debug and troubleshoot pods
 - Complete hands-on exercises
@@ -77,36 +77,56 @@ Client Version: v1.28.0
 Kustomize Version: v5.0.4-0.20230601165947-6ce0bf390ce3
 ```
 
-### 2. Install Minikube
+### 2. Install kind (Kubernetes in Docker/Podman)
+
+kind is a tool for running local Kubernetes clusters using container "nodes".
 
 #### macOS
 ```bash
 # Using Homebrew
-brew install minikube
+brew install kind
 
 # Verify installation
-minikube version
+kind version
 ```
 
 #### Linux
 ```bash
-# Download Minikube
-curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64
+# For AMD64 / x86_64
+[ $(uname -m) = x86_64 ] && curl -Lo ./kind https://kind.sigs.k8s.io/dl/v0.20.0/kind-linux-amd64
+# For ARM64
+[ $(uname -m) = aarch64 ] && curl -Lo ./kind https://kind.sigs.k8s.io/dl/v0.20.0/kind-linux-arm64
 
-# Install
-sudo install minikube-linux-amd64 /usr/local/bin/minikube
+# Make executable and install
+chmod +x ./kind
+sudo mv ./kind /usr/local/bin/kind
 
 # Verify installation
-minikube version
+kind version
 ```
 
 #### Windows
 ```powershell
 # Using Chocolatey
-choco install minikube
+choco install kind
 
 # Verify installation
-minikube version
+kind version
+```
+
+**Expected Output:**
+```
+kind v0.20.0 go1.20.4 darwin/amd64
+```
+```
+
+#### Windows
+```powershell
+# Using Chocolatey
+choco install kind
+
+# Verify installation
+kind version
 ```
 
 **Expected Output:**
@@ -140,76 +160,94 @@ sudo apt-get install podman
 
 ---
 
-## 🚀 Starting Minikube
+## 🚀 Setting up kind with Podman
 
-### Start Minikube with Podman Driver
+kind can use different container runtimes. We'll configure it to use Podman instead of Docker.
+
+### 1. Verify Podman is Running
 
 ```bash
-# Start Minikube using Podman as container runtime
-minikube start --driver=podman --container-runtime=cri-o
+# Check Podman version
+podman version
+
+# Ensure Podman socket is available (if needed)
+podman system service --time=0 &
+```
+
+### 2. Create Kubernetes Cluster with kind
+
+```bash
+# Create cluster using Podman as the provider
+KIND_EXPERIMENTAL_PROVIDER=podman kind create cluster --name kubectl-cluster
 ```
 
 **What happens:**
-1. Downloads Kubernetes images
-2. Creates a VM (or container) for the cluster
-3. Configures kubectl to use Minikube cluster
+1. Downloads kindest/node image
+2. Creates container "nodes" for the cluster
+3. Configures kubectl to use kind cluster
 4. Starts control plane components
 
 **Expected Output:**
 ```
-😄  minikube v1.32.0 on Darwin 14.1.1
-✨  Using the podman driver based on user configuration
-👍  Starting control plane node minikube in cluster minikube
-🚜  Pulling base image ...
-🔥  Creating podman container (CPUs=2, Memory=4096MB) ...
-🐳  Preparing Kubernetes v1.28.3 on CRI-O 1.28.2 ...
-🔗  Configuring bridge CNI (Container Networking Interface) ...
-🔎  Verifying Kubernetes components...
-🌟  Enabled addons: storage-provisioner, default-storageclass
-🏄  Done! kubectl is now configured to use "minikube" cluster and "default" namespace by default
+Creating cluster "kubectl-cluster" ...
+ ✓ Ensuring node image (kindest/node:v1.28.0) 🖼
+ ✓ Preparing nodes 📦
+ ✓ Writing configuration 📜
+ ✓ Starting control-plane 🕹️
+ ✓ Installing CNI 🔌
+ ✓ Installing StorageClass 💾
+Set kubectl context to "kind-kubectl-cluster"
+You can now use your cluster with:
+
+kubectl cluster-info --context kind-kubectl-cluster
+
+Have a question, bug, or feature request? Let us know! https://kind.sigs.k8s.io/#community 🙂
 ```
 
-### Verify Cluster Status
+### 3. Verify Cluster Status
 
 ```bash
-# Check Minikube status
-minikube status
+# Check cluster info
+kubectl cluster-info
+
+# List nodes
+kubectl get nodes
+
+# Check all system pods are running
+kubectl get pods --all-namespaces
 ```
 
-**Output:**
+**Expected Output:**
 ```
-minikube
-type: Control Plane
-host: Running
-kubelet: Running
-apiserver: Running
-kubeconfig: Configured
+NAME                             STATUS   ROLES           AGE   VERSION
+kubectl-cluster-control-plane   Ready    control-plane   2m   v1.28.0
 ```
 
-### Check kubectl Configuration
+### 4. Configure kubectl Context
 
 ```bash
 # View current context
 kubectl config current-context
-# minikube
+# kind-kubectl-cluster
 
 # View cluster info
 kubectl cluster-info
-# Kubernetes control plane is running at https://192.168.49.2:8443
-# CoreDNS is running at https://192.168.49.2:8443/api/v1/namespaces/kube-system/services/kube-dns:dns/proxy
+# Kubernetes control plane is running at https://127.0.0.1:xxxxx
+# CoreDNS is running at https://127.0.0.1:xxxxx/api/v1/namespaces/kube-system/services/kube-dns:dns/proxy
 ```
 
-### Access Kubernetes Dashboard (Optional)
+### 5. Access Cluster (Optional)
 
 ```bash
-# Enable dashboard addon
-minikube addons enable dashboard
+# Get cluster endpoint
+kubectl cluster-info
 
-# Start dashboard
-minikube dashboard
+# List all contexts
+kubectl config get-contexts
+
+# Switch contexts if needed
+kubectl config use-context kind-kubectl-cluster
 ```
-
-Opens browser with Kubernetes dashboard UI!
 
 ---
 
@@ -381,7 +419,7 @@ kubectl get pods --all-namespaces
 **Example Output:**
 ```
 NAME        READY   STATUS    RESTARTS   AGE   IP           NODE       
-nginx-pod   1/1     Running   0          30s   10.244.0.4   minikube
+nginx-pod   1/1     Running   0          30s   10.244.0.4   kubectl-cluster-control-plane
 ```
 
 ### 3. Describe Pod (Detailed Info)
@@ -727,20 +765,17 @@ spec:
 ```bash
 kubectl apply -f nginx-nodeport.yaml
 
-# Get Minikube IP
-minikube ip
-# 192.168.49.2
+# Use port-forward to access service locally
+kubectl port-forward service/nginx-nodeport 8080:80
 
-# Access service
-curl http://192.168.49.2:30080
+# Access service in browser: http://localhost:8080
+# Or with curl
+curl http://localhost:8080
 ```
 
-**Or use Minikube service command:**
-```bash
-minikube service nginx-nodeport
-```
+### 6. Expose with LoadBalancer (kind)
 
-### 6. Expose with LoadBalancer (Minikube)
+**Note:** kind doesn't support LoadBalancer services by default. Use port-forward or NodePort instead.
 
 ```yaml
 apiVersion: v1
@@ -760,15 +795,18 @@ spec:
 ```bash
 kubectl apply -f nginx-loadbalancer.yaml
 
-# In separate terminal, run tunnel (required for Minikube)
-minikube tunnel
+# Service will show <pending> for EXTERNAL-IP in kind
+kubectl get service nginx-loadbalancer
+
+# Use port-forward to access
+kubectl port-forward service/nginx-loadbalancer 8080:80
 ```
 
-**Check external IP:**
+**Check service status:**
 ```bash
 kubectl get service nginx-loadbalancer
-# NAME                 TYPE           CLUSTER-IP      EXTERNAL-IP      PORT(S)
-# nginx-loadbalancer   LoadBalancer   10.96.45.123    127.0.0.1        80:31234/TCP
+# NAME                 TYPE           CLUSTER-IP      EXTERNAL-IP   PORT(S)
+# nginx-loadbalancer   LoadBalancer   10.96.45.123    <pending>     80:31234/TCP
 ```
 
 **Access:**
@@ -948,10 +986,10 @@ kubectl delete deployments,services,configmaps -l app=myapp
 kubectl config get-contexts
 
 # Switch context
-kubectl config use-context minikube
+kubectl config use-context kind-kubectl-cluster
 
 # Create new context
-kubectl config set-context dev --namespace=development --cluster=minikube --user=minikube
+kubectl config set-context dev --namespace=development --cluster=kind-kubectl-cluster --user=kind-kubectl-cluster
 
 # Set default namespace for context
 kubectl config set-context --current --namespace=kube-system
@@ -1064,7 +1102,7 @@ kubectl krew install who-can # RBAC analysis
 **Use plugins:**
 ```bash
 # Quick context switching
-kubectl ctx minikube
+kubectl ctx kind-kubectl-cluster
 
 # Quick namespace switching  
 kubectl ns kube-system
@@ -1298,7 +1336,7 @@ Look at **Events** section at the bottom:
 Events:
   Type     Reason     Age   From               Message
   ----     ------     ----  ----               -------
-  Normal   Scheduled  30s   default-scheduler  Successfully assigned default/nginx-pod to minikube
+  Normal   Scheduled  30s   default-scheduler  Successfully assigned default/nginx-pod to kubectl-cluster-control-plane
   Normal   Pulling    29s   kubelet            Pulling image "nginx:1.24"
   Normal   Pulled     25s   kubelet            Successfully pulled image
   Normal   Created    25s   kubelet            Created container nginx
@@ -1669,8 +1707,8 @@ kubectl get pods -w
 # Check resource usage
 kubectl top pods
 
-# Access the application
-minikube service todo-frontend --url
+# Access the application using port-forward
+kubectl port-forward service/todo-frontend 8080:80
 ```
 
 ### Exercise 2: Scaling and Load Testing
@@ -1712,8 +1750,11 @@ kubectl get endpoints todo-backend
 
 **Step 3: Horizontal Pod Autoscaler (HPA)**
 ```bash
-# Enable metrics server (if not enabled)
-minikube addons enable metrics-server
+# Install metrics-server for kind
+kubectl apply -f https://github.com/kubernetes-sigs/metrics-server/releases/latest/download/components.yaml
+
+# Patch metrics-server for kind (insecure TLS)
+kubectl patch -n kube-system deployment metrics-server --type='json' -p='[{"op":"add","path":"/spec/template/spec/containers/0/args/-","value":"--kubelet-insecure-tls"}]'
 
 # Create HPA with kubectl
 kubectl autoscale deployment todo-backend --cpu-percent=50 --min=2 --max=10
